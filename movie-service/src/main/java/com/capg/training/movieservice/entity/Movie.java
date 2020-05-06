@@ -1,4 +1,4 @@
-package com.capg.training.ratingservice.entity;
+package com.capg.training.movieservice.entity;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -13,24 +13,21 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Entity
-@Table(name = "rating")
+@Table(name = "movie")
 @Getter
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class Rating {
+public class Movie {
 
+	// Primary Key
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 	
-	// Foreign Key
 	@Column
-	private Integer movieId;
+	private String movieName;
 	
 	@Column
-	private Integer userId;
-	
-	@Column
-	private Integer rating;
+	private String category;
 }

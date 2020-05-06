@@ -10,7 +10,7 @@ import org.springframework.stereotype.Repository;
 import com.capg.training.ratingservice.entity.Rating;
 
 @Repository
-public interface RatingJpaRepository extends JpaRepository<Rating, Integer>{
+public interface RatingJpaRepository extends JpaRepository<Rating, Integer>, CustomRatingJpaRepository{
 	// custom method declaration
 	// correct naming convention
 	// implementation will be provided internally
@@ -22,7 +22,7 @@ public interface RatingJpaRepository extends JpaRepository<Rating, Integer>{
  	List<Integer> findRatingCustomWay(@Param("userId")Integer userId, @Param("movieId") Integer movieId);
  	*/
  	
- 	@Query("select r from rating r where r.userId =:userId and r.movieId=:movieId")
+ 	@Query("select r from Rating r where r.userId =:userId and r.movieId=:movieId")
  	List<Rating> findRatingCustomWay(@Param("userId")Integer userId, @Param("movieId") Integer movieId);
 }
 
